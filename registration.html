@@ -15,7 +15,7 @@
 <div class="container" width="60%">
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#personal-data">Персональные данные</a></li>
-        <li><a data-toggle="tab" href="#education">Образование</a></li>
+        <li><a data-toggle="tab" href="#education-page">Образование</a></li>
         <li><a data-toggle="tab" href="#password">Ввод пароля</a></li>
     </ul>
     <div class="tab-content">
@@ -82,7 +82,8 @@
                     <div class="form-group">
                         <label class="control-label col-sm-4">Адрес:</label>
                         <div class="col-sm-8">
-                            <textarea class="form-control" rows="4" style="resize: vertical">Адресс проживания</textarea>
+                            <textarea class="form-control" rows="4"
+                                      style="resize: vertical">Адресс проживания</textarea>
                         </div>
                     </div>
                     <div class="form-group">
@@ -95,7 +96,7 @@
                 </form>
             </div>
         </div>
-        <div id="education" class="tab-pane fade">
+        <div id="education-page" class="tab-pane fade">
             <h3>Образование</h3>
             <form class="form-horizontal">
                 <div class="form-group">
@@ -129,6 +130,7 @@
                     </div>
                 </div>
             </form>
+            <button id="addEducation" class="btn btn-primary col-sm-offset-2">Добавить</button>
         </div>
         <div id="password" class="tab-pane fade">
             <h3>Установка пароля</h3>
@@ -137,7 +139,7 @@
                 <p>Тут какой-то текст по поводу пароля и логина, и вообще как этим всем пользоваться, а то можно так и
                     потеряться</p>
             </div>
-            <from class="form-horizontal">
+            <form class="form-horizontal">
                 <div class="form-group">
                     <label class="control-label col-sm-3 col-md-2">Выберите филиал:</label>
                     <div class="col-sm-9 col-md-10">
@@ -161,8 +163,36 @@
                         <input type="password" class="form-control" placeholder="Ну тут просто надо повторить">
                     </div>
                 </div>
-            </from>
+            </form>
         </div>
     </div>
+</div>
+<script>
+    $('#addEducation').on('click', function () {
+        const NewEducation = '<form class="form-horizontal"><div class="form-group">' +
+            '<label class="control-label col-sm-2">Уровень:</label>' +
+            '<div class="col-sm-10">' +
+            '<select class="form-control">' +
+            '<option selected value="0">Высшее</option>' +
+            '<option value="1">Неоконченное высшее</option>' +
+            '<option value="2">Среднее</option>' +
+            '<option value="3">Специальное</option>' +
+            '</select></div></div><div class="form-group">' +
+            '<label class="control-label col-sm-2">Название учебного заведения:</label>' +
+            '<div class="col-sm-10">' +
+            '<textarea class="form-control" rows="2" style="resize: none">РГПУ им. Герцена</textarea>' +
+            '</div></div><div class="form-group">' +
+            '<label class="control-label col-sm-2">Специальность:</label>' +
+            '<div class="col-sm-10">' +
+            '<textarea class="form-control" rows="2" style="resize: none">Информатика и вычислительная техника</textarea>' +
+            '</div></div><div class="form-group">' +
+            '<label class="control-label col-sm-2">Год окончания:</label>' +
+            '<div class="col-sm-10"><input type="number" class="form-control"' +
+            'placeholder="Иванович" min="1800" max="2050" value="2015">' +
+            '</div></div></form>';
+
+        $(NewEducation).insertBefore('#addEducation');
+    })
+</script>
 </body>
 </html>
